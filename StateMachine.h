@@ -24,5 +24,7 @@ public:
 
 	//Record that can be written to the questions file
 	Record saveableQuestionData;
+
+	
 };
 

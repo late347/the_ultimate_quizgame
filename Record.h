@@ -27,6 +27,10 @@ public:
 			falseChoices[i] = falses[i];
 		}
 	}
+
+protected:
+	
+
 private:
 
 	static constexpr int wrongChoices{ 3 };

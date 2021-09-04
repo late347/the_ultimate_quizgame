@@ -40,16 +40,14 @@ void EnterQuestion::onEntry()
 		stateMachine.saveableQuestionData = record;
 		stateMachine.changeState(SAVEQUESTION);
 		break;
-	case 2:  case 3:
+	case 2:  
+	case 3:
 		// dont do anything basically just goto main menu
-		// old questions data will be resetted though
 		stateMachine.saveableQuestionData = Record{};
 		stateMachine.changeState(MAINMENU);
 		break;
-		// go to main menu also
-		break;
 	case 4: 
-		// quit program
+		// quit
 		stateMachine.saveableQuestionData = Record{};
 		stateMachine.changeState(QUIT);
 		break;
