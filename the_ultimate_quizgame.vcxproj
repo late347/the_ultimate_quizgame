@@ -143,6 +143,7 @@
     <ClCompile Include="EnterQuestion.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Quit.cpp" />
+    <ClCompile Include="Record.cpp" />
     <ClCompile Include="RemoveQuestions.cpp" />
     <ClCompile Include="SaveQuestion.cpp" />
     <ClCompile Include="StateMachine.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="EnterQuestion.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Quit.h" />
+    <ClInclude Include="QuizStates.h" />
     <ClInclude Include="Record.h" />
     <ClInclude Include="RemoveQuestions.h" />
     <ClInclude Include="SaveQuestion.h" />

@@ -52,9 +52,7 @@ void SaveQuestion::writeQuestionsToFile()
 		outQuestionsStream << rec.getQuestion() << ';' << rec.getCorrectAnswer() << ';';
 		for (size_t i = 0; i < 3; i++)
 		{
-			outQuestionsStream << rec.getFalseChoices()[i];
-			if (i < 2)
-				outQuestionsStream << ';';
+			outQuestionsStream << rec.getFalseChoices()[i] << ';';
 		}
 		// start newline for the next record
 		outQuestionsStream << endl;

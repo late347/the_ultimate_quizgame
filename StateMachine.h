@@ -24,7 +24,7 @@ public:
 	void resetQuestionsList() { questionsList.clear(); }
 
 	std::vector<Record> getQuestionsList() const { return questionsList; }
-
+	
 	// sanity check to verify that the questionsfile has questions before attempting to take the quiz actually
 	// cant take the quiz if the file had been erased before attempting to take it
 	bool isQuestionFileEmpty()
@@ -49,8 +49,8 @@ private:
 	//curState
 	State* curState; //one curState of statemachine
 
-	//list of questions for the quiz when its playing
-	std::vector<Record> quizList;
+
+
 	int correctAnswersNumber = 0;
 
 
