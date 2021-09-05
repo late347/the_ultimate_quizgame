@@ -143,18 +143,18 @@
     <ClCompile Include="EnterQuestion.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Quit.cpp" />
+    <ClCompile Include="RemoveQuestions.cpp" />
     <ClCompile Include="SaveQuestion.cpp" />
     <ClCompile Include="StateMachine.cpp" />
     <ClCompile Include="the_ultimate_quizgame.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CommonDefinitions.h" />
     <ClInclude Include="CstyleRecord.h" />
     <ClInclude Include="EnterQuestion.h" />
-    <ClInclude Include="FileAccessor.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Quit.h" />
     <ClInclude Include="Record.h" />
+    <ClInclude Include="RemoveQuestions.h" />
     <ClInclude Include="SaveQuestion.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />

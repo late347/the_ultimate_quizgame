@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
 
-// chould be used to writing to a random access file (binary mode writing)
-// doing it would require exact size strings but would allow random access and insertion and deletion nicely
+// chould be used to writing to a random access file (binary mode writing/reading)
+// doing it would require exact size strings but would allow random access and exact insertion and deletion nicely
 class CstyleRecord
 {
 public:
@@ -23,7 +23,7 @@ public:
 	{
 		int length = val.size();
 		// truncate if necessary
-		length = (length < 61 ? length : (charlimit - 1));
+		length = (length < charlimit ? length : (charlimit - 1));
 		val.copy(question, length);
 		question[length] = '\0';
 	}
@@ -37,7 +37,7 @@ public:
 	{
 		int length = val.size();
 		// truncate if necessary
-		length = (length < 61 ? length : (charlimit - 1));
+		length = (length < charlimit ? length : (charlimit - 1));
 		val.copy(correctAnswer, length);
 		correctAnswer[length] = '\0';
 	}
@@ -52,7 +52,7 @@ public:
 	{
 		int length = val.size();
 		// truncate if necessary
-		length = (length < 61 ? length : (charlimit - 1));
+		length = (length < charlimit ? length : (charlimit - 1));
 		val.copy(false1, length);
 		false1[length] = '\0';
 	}
@@ -61,7 +61,7 @@ public:
 	{
 		int length = val.size();
 		// truncate if necessary
-		length = (length < 61 ? length : (charlimit - 1));
+		length = (length < charlimit ? length : (charlimit - 1));
 		val.copy(false2, length);
 		false2[length] = '\0';
 	}
@@ -72,7 +72,7 @@ public:
 	{
 		int length = val.size();
 		// truncate if necessary
-		length = (length < 61 ? length : (charlimit - 1));
+		length = (length < charlimit ? length : (charlimit - 1));
 		val.copy(false3, length);
 		false3[length] = '\0';
 	}

@@ -2,16 +2,19 @@
 #include <stdexcept>
 #include "MainMenu.h"
 
+class Record;
 StateMachine::StateMachine()
  {
-	
+	saveableQuestionData = Record{};
+
 	// allocate the states here, start from mainmenu
 	auto mm = new MainMenu(*this);
 	possibleStates[State::StateName::MAINMENU] = mm;
-	// remember to initialize the first state
+	
+	// remember to initialize sm into the first state
 	curState = mm;
 
-	// put other states into state machine too
+	// put other states into state machine too TODO...
 
 }
 

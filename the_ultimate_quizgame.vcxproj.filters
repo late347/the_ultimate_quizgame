@@ -33,6 +33,9 @@
     <ClCompile Include="SaveQuestion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RemoveQuestions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="State.h">
@@ -59,10 +62,7 @@
     <ClInclude Include="CstyleRecord.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FileAccessor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CommonDefinitions.h">
+    <ClInclude Include="RemoveQuestions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

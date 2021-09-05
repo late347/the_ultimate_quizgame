@@ -6,38 +6,42 @@
 
 class Record
 {
-	
+
 public:
-	Record(){}
+	Record() {}
 
 	Record(const std::string& q, const std::string& a, const std::array<std::string, 3 >& falses)
 		: question(q), correctAnswer(a)
 	{
-		for (size_t i = 0; i < wrongChoices; i++)
+		for (size_t i = 0; i < 3; i++)
 		{
 			falseChoices[i] = falses[i];
 		}
 	}
 
 	Record(const std::string& q, const std::string& a, const std::vector<std::string>& falses)
-	: question(q), correctAnswer(a) 
+		: question(q), correctAnswer(a)
 	{
-		for (size_t i = 0; i < wrongChoices; i++)
+		for (size_t i = 0; i < 3; i++)
 		{
 			falseChoices[i] = falses[i];
 		}
 	}
+	std::string getQuestion() const { return  question; }
+	std::string getCorrectAnswer() const { return  correctAnswer; }
+	std::array<std::string, 3> getFalseChoices() const { return falseChoices; }
 
-protected:
-	
+
+public:
+
 
 private:
 
-	static constexpr int wrongChoices{ 3 };
+
 
 	std::string question;
 	std::string correctAnswer;
-	std::array<std::string, wrongChoices> falseChoices;
+	std::array<std::string, 3> falseChoices;
 
 
 

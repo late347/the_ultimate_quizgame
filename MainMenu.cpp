@@ -16,8 +16,18 @@ void MainMenu::onEntry()
 	// here you process the users actions to decide
 	switch (userInput)
 	{
-	case 1: break;
-	
+	case 1: 
+		stateMachine.changeState(ENTERQUESTION);
+		break;
+	case 2:
+		// attempt to take the quiz, but dont take the quiz if the questionfile was empty!
+		break;
+	case 3: 
+		// delete questionsfromfile state
+		break;
+	case 4:
+		stateMachine.changeState(QUIT);
+		break;
 	default:
 		break;
 	}
