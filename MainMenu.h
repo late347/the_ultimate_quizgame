@@ -14,7 +14,7 @@ public:
 
 	//datamembers
 public:
-	const int numberOfMenuOptions{ 4 };
+	const int numberOfMenuOptions{ 5 };
 	const State::StateName name{ MAINMENU };
 	
 private:

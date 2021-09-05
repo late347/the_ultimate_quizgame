@@ -8,7 +8,9 @@ void RemoveQuestions::onEntry()
 	using namespace std;
 	cout << "removing the questions from the file...\n";
 	removeQuestions();
+	printMenu();
 	int userInput = getInput();
+
 	switch (userInput)
 	{
 		//mainmenu
@@ -39,6 +41,7 @@ void RemoveQuestions::printMenu()
 int RemoveQuestions::getInput()
 {
 	int request = getNumericInput(this->numberOfMenuOptions);
+	
 	return request;
 }
 

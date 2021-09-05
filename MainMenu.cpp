@@ -6,9 +6,7 @@ void MainMenu::onEntry()
 {
 	using namespace std;
 
-	cout << "Welcome to the quiz game, you can add new questions to save to a file\n";
-	cout << "you can also take the quiz and tells you the statistics about correct answers\n";
-	cout << "you can also remove the file with the questions\n or simply quit the game";
+	
 
 	printMenu();
 	int userInput = getInput();
@@ -17,15 +15,29 @@ void MainMenu::onEntry()
 	switch (userInput)
 	{
 	case 1: 
+		// enter a question to list
 		stateMachine.changeState(ENTERQUESTION);
 		break;
 	case 2:
 		// attempt to take the quiz, but dont take the quiz if the questionfile was empty!
-		break;
+		if (!stateMachine.isQuestionFileEmpty())
+		{
+			//TODO finish the quiz states!!!
+			stateMachine.changeState(QUIZSTART);
+			break;
+		}
+		else
+		{
+			std::cout << "questions File was totally empty cannot start quiz, going back to mainmenu\n";
+			stateMachine.changeState(MAINMENU);
+			break;
+		}
 	case 3: 
 		// delete questionsfromfile state
+		stateMachine.changeState(REMOVEQUESTIONS);
 		break;
 	case 4:
+		// quit game
 		stateMachine.changeState(QUIT);
 		break;
 	default:

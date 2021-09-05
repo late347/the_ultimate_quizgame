@@ -5,58 +5,66 @@
 
 void SaveQuestion::onEntry()
 {
-	writeQuestion();
+
+	writeQuestionsToFile();
+	std::cout << "you questions were saved to the file, and then cleared from the memory\n";
+	//  questions were saved to file so clear old ones
+	stateMachine.resetQuestionsList();
+	printMenu();
 	int answer = getNumericInput(numberOfMenuOptions);
 	switch (answer)
 	{
 	case 1: 
+
+		// enter question to list
 		stateMachine.changeState(ENTERQUESTION);
 		break;
 	case 2:
-		// go to take the quiz start state
-		// TODO
-		break;
-	case 3:
-		stateMachine.changeState(REMOVEQUESTIONS);
-		break;
-	case 4:
+		
+		// main menu
 		stateMachine.changeState(MAINMENU);
 		break;
-	case 5:
+	case 3:
+		// quit
 		stateMachine.changeState(QUIT);
 		break;
+	
 	default:
 		break;
 	}
 }
 
-void SaveQuestion::writeQuestion()
+void SaveQuestion::writeQuestionsToFile()
 {
 	using namespace std;
 	cout << "saving the question to the file...\n";
 
-	ofstream outQuestionsStream(stateMachine.filename,  ios::app);
+	ofstream outQuestionsStream(stateMachine.filename, ios::app);
 	if (!outQuestionsStream)
 	{
 		throw std::logic_error("couldnt open even the file!??!!");
 	}
 
-	// format the file as csv
-	outQuestionsStream << stateMachine.saveableQuestionData.getQuestion() << ';' << stateMachine.saveableQuestionData.getCorrectAnswer() << ';';
-	for (size_t i = 0; i < 3; i++)
+	for (size_t i = 0; i < stateMachine.getQuestionsList().size(); i++)
 	{
-		outQuestionsStream << stateMachine.saveableQuestionData.getFalseChoices()[i];
-		if (i < 2)
-			outQuestionsStream << ';';
+		auto rec = stateMachine.getQuestionsList()[i];
+		// format the file as csv
+		outQuestionsStream << rec.getQuestion() << ';' << rec.getCorrectAnswer() << ';';
+		for (size_t i = 0; i < 3; i++)
+		{
+			outQuestionsStream << rec.getFalseChoices()[i];
+			if (i < 2)
+				outQuestionsStream << ';';
+		}
+		// start newline for the next record
+		outQuestionsStream << endl;
 	}
-	outQuestionsStream << endl;
 
 }
 
 void SaveQuestion::onExit()
 {
-	// resett the savedData
-	stateMachine.saveableQuestionData = Record{};
+	
 
 }
 
@@ -65,10 +73,9 @@ void SaveQuestion::printMenu()
 	using namespace std;
 	cout << "After the question was saved, select an option what to do next from below \n";
 	cout << "1. enter a new question (to the quiz)\n";
-	cout << "2. take the quiz\n";
-	cout << "3. delete all questions\n";
-	cout << "4. main menu\n";
-	cout << "5. quit\n";
+	cout << "2. main menu\n";
+	cout << "3. quit\n";
+
 	
 }
 

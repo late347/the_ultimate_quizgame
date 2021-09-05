@@ -16,6 +16,7 @@ public:
 		QUIT
 	};
 
+
 	int getNumericInput(int menuOptions) {
 		int a{ 0 };
 		bool keepGoing = true;

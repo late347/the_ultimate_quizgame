@@ -26,7 +26,8 @@ void EnterQuestion::onEntry()
 
 	// save for the moment the record if its necessary to write it to file
 	Record record(question, correct, falses);
-
+	cout << "your question was added to the list in memory, but not yet saved to file\n";
+	stateMachine.addQuestionToList(record);
 
 	/*ask again the user what to do*/
 	printMenu();
@@ -36,19 +37,19 @@ void EnterQuestion::onEntry()
 	switch (userInput)
 	{
 	case 1:
-		// record will be written to file
-		stateMachine.saveableQuestionData = record;
+		// records will be written to file
 		stateMachine.changeState(SAVEQUESTION);
 		break;
 	case 2:  
+		//enter a new question to list
+		stateMachine.changeState(ENTERQUESTION);
 	case 3:
 		// dont do anything basically just goto main menu
-		stateMachine.saveableQuestionData = Record{};
 		stateMachine.changeState(MAINMENU);
 		break;
 	case 4: 
 		// quit
-		stateMachine.saveableQuestionData = Record{};
+		stateMachine.resetQuestionsList();
 		stateMachine.changeState(QUIT);
 		break;
 	default:
@@ -67,9 +68,9 @@ void EnterQuestion::printMenu()
 {
 	using namespace std;
 	cout << "Select what you want to do next \n";
-	cout << "1. save question to file (you can then add more questions also) \n";
-	cout << "2. discard question (after it you go to mainmenu) \n";
-	cout << "3. main menu (also discards question) \n";
+	cout << "1. save all questions to file (you can then add more questions also) \n";
+	cout << "2. enter a question \n";
+	cout << "3. main menu \n";
 	cout << "4. quit \n";
 }
 

@@ -11,12 +11,12 @@ public:
 	virtual void onExit() override;
 	virtual void printMenu() override;
 	virtual int getInput() override;
-	void writeQuestion();
+	void writeQuestionsToFile();
 
 
 	//datamembers
 public:
-	const int numberOfMenuOptions{ 5 };
+	const int numberOfMenuOptions{ 3 };
 	const State::StateName name{ SAVEQUESTION };
 	static constexpr int charLimit{ 61 };
 	static constexpr int wrongChoices{ 3 };

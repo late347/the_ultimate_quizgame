@@ -27,5 +27,7 @@ public:
 private:
 	StateMachine& stateMachine;
 
+
+
 };
 

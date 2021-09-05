@@ -2,12 +2,13 @@
 #include <string>
 #include <vector>
 #include <array>
-
+#include <cmath>
 
 class Record
 {
 
 public:
+
 	Record() {}
 
 	Record(const std::string& q, const std::string& a, const std::array<std::string, 3 >& falses)
