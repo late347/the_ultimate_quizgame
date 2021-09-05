@@ -17,7 +17,6 @@ void SaveQuestion::onEntry()
 		// TODO
 		break;
 	case 3:
-		// del questions from file
 		stateMachine.changeState(REMOVEQUESTIONS);
 		break;
 	case 4:
@@ -36,7 +35,7 @@ void SaveQuestion::writeQuestion()
 	using namespace std;
 	cout << "saving the question to the file...\n";
 
-	ofstream outQuestionsStream("quizgame_questions.csv",  ios::app);
+	ofstream outQuestionsStream(stateMachine.filename,  ios::app);
 	if (!outQuestionsStream)
 	{
 		throw std::logic_error("couldnt open even the file!??!!");

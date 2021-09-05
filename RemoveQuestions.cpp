@@ -46,7 +46,7 @@ void RemoveQuestions::removeQuestions()
 {
 	using namespace std;
 
-	ofstream outQuestionsStream("quizgame_questions.csv", ios::out | ios::trunc);
+	ofstream outQuestionsStream(stateMachine.filename, ios::out | ios::trunc);
 	if (!outQuestionsStream)
 	{
 		throw std::logic_error("couldnt open even the file for removing the questions!??!!");

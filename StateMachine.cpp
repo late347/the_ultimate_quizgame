@@ -1,8 +1,16 @@
 #include "StateMachine.h"
 #include <stdexcept>
 #include "MainMenu.h"
+#include "RemoveQuestions.h"
+#include "EnterQuestion.h"
+#include "Quit.h"
+#include "SaveQuestion.h"
 
+
+
+class RemoveQuestions;
 class Record;
+
 StateMachine::StateMachine()
  {
 	saveableQuestionData = Record{};
@@ -13,8 +21,13 @@ StateMachine::StateMachine()
 	
 	// remember to initialize sm into the first state
 	curState = mm;
+	
 
 	// put other states into state machine too TODO...
+	possibleStates[State::StateName::REMOVEQUESTIONS] = new RemoveQuestions(*this);
+	possibleStates[State::StateName::ENTERQUESTION] = new EnterQuestion(*this);
+	possibleStates[State::StateName::QUIT] = new Quit(*this);
+	possibleStates[State::StateName::SAVEQUESTION] = new SaveQuestion(*this);
 
 }
 
