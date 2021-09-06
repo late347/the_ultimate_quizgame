@@ -6,7 +6,7 @@
 #include <iostream>
 #include "SaveQuestion.h"
 #include "CommonConstants.h"
-
+#include <algorithm>
 class Record
 {
 
@@ -96,6 +96,11 @@ public:
 
 
 public:
+
+	void shuffleFalseChoices()
+	{
+		std::random_shuffle(falseChoices.begin(), falseChoices.end());
+	}
 
 
 private:

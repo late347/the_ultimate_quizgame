@@ -22,7 +22,7 @@ void MainMenu::onEntry()
 		if (!stateMachine.isQuestionFileEmpty())
 		{
 			//TODO finish the quiz states!!!
-			stateMachine.changeState(QUIZSTART);
+			stateMachine.changeState(QUIZGAME);
 			break;
 		}
 		else

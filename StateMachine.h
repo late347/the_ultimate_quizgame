@@ -60,6 +60,6 @@ private:
 	// both states use it so better to share that data here
 	std::vector<Record> questionsList;
 
-
+	
 };
 

@@ -153,6 +153,7 @@
     <ClInclude Include="CommonConstants.h" />
     <ClInclude Include="CstyleRecord.h" />
     <ClInclude Include="EnterQuestion.h" />
+    <ClInclude Include="GameQuestion.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Quit.h" />
     <ClInclude Include="QuizStates.h" />

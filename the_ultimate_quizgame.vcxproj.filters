@@ -74,6 +74,9 @@
     <ClInclude Include="CommonConstants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameQuestion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="quizgame_questions.csv" />
