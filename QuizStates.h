@@ -4,7 +4,8 @@
 #include "StateMachine.h"
 #include <fstream>
 #include "Record.h"
-#include <stringstream>
+
+
 class QuizStart : public State 
 {
 	//methods
@@ -45,13 +46,14 @@ public:
 		gameQuestions.clear();
 		
 		Record rec;
-		std::string rawline;
-		while (recordReader >> rawline )
+		cout << "reading the quiz questions from csv file to memory\n";
+
+		//process the records based on csv delimiter
+		while (recordReader >> rec )
 		{
-			//process the record field based on csv delimiter
-			// for the tokens as it were
 			
-			
+			gameQuestions.push_back(rec);
+			rec = Record{};
 		}
 	}
 

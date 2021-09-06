@@ -49,7 +49,7 @@ void SaveQuestion::writeQuestionsToFile()
 	{
 		auto rec = stateMachine.getQuestionsList()[i];
 		// format the file as csv
-		outQuestionsStream << rec.getQuestion() << ';' << rec.getCorrectAnswer() << ';';
+		outQuestionsStream << rec.getQuestion() << delimiter << rec.getCorrectAnswer() << delimiter;
 		for (size_t i = 0; i < 3; i++)
 		{
 			outQuestionsStream << rec.getFalseChoices()[i] << ';';

@@ -4,7 +4,7 @@
 #include <array>
 #include <cmath>
 #include <iostream>
-
+#include "SaveQuestion.h"
 
 
 class Record
@@ -15,8 +15,11 @@ public:
 	Record() {}
 
 	Record(const std::string& q, const std::string& a, const std::array<std::string, 3 >& falses)
-		: question(q), correctAnswer(a)
 	{
+		// verify charcount was ok or truncate it 
+		question = q;
+			correctAnswer = a;
+
 		for (size_t i = 0; i < 3; i++)
 		{
 			falseChoices[i] = falses[i];
@@ -24,8 +27,11 @@ public:
 	}
 
 	Record(const std::string& q, const std::string& a, const std::vector<std::string>& falses)
-		: question(q), correctAnswer(a)
 	{
+
+			// verify charcount was ok or truncate it 
+		question = q;
+		correctAnswer = a;
 		for (size_t i = 0; i < 3; i++)
 		{
 			falseChoices[i] = falses[i];
@@ -48,7 +54,7 @@ public:
 private:
 
 	friend std::ostream& operator<< (std::ostream& os, const Record& rec);
-	friend std::istream& operator>>(std::istream& is, const Record& rec);
+	friend std::istream& operator>>(std::istream& is, Record& rec);
 
 
 	std::string question;
