@@ -5,6 +5,8 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include "CommonConstants.h"
+
 
 class StateMachine
 {
@@ -30,12 +32,11 @@ public:
 	bool isQuestionFileEmpty()
 	{
 		using namespace std;
-		ifstream questionInStream(filename, ios::in);
+		ifstream questionInStream(config::filename, ios::in);
 		if (!questionInStream)
 		{
 			throw logic_error("couldnt check if file was empty!?!?\n");
 		}
-		// pFile.peek() == std::ifstream::traits_type::eof()
 
 		return (questionInStream.peek() == std::ifstream::traits_type::eof());
 
@@ -46,23 +47,19 @@ public:
 
 private:
 
-	//curState
-	State* curState; //one curState of statemachine
+	//current state
+	State* curState; 
 
 
-
+	// correct answers in the quiz when taking it
 	int correctAnswersNumber = 0;
 
 
 	//Record that can be written to the questions file before writing to file
+	// it could be in the state classes like EnterQuestion or SaveQuestion but 
+	// both states use it so better to share that data here
 	std::vector<Record> questionsList;
 
-public:
-	
-	
 
-	//filename for questions file for records
-	 const char* filename = "quizgame_questions.csv";
-	
 };
 

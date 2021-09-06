@@ -1,7 +1,6 @@
 #include "MainMenu.h"
 #include <iostream>
 #include <limits>
-
 void MainMenu::onEntry()
 {
 	using namespace std;

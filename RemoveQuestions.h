@@ -19,8 +19,7 @@ public:
 public:
 	const int numberOfMenuOptions{ 2 };
 	const State::StateName name{ REMOVEQUESTIONS };
-	static constexpr int charLimit{ 61 };
-	static constexpr int wrongChoices{ 3 };
+
 
 private:
 	StateMachine& stateMachine;

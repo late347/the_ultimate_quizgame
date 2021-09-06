@@ -37,7 +37,7 @@ public:
 
 
 
-		ifstream recordReader(stateMachine.filename, ios::in);
+		ifstream recordReader(config::filename, ios::in);
 		if (!recordReader)
 		{
 			throw logic_error("couldnt check if file was empty!?!?\n");

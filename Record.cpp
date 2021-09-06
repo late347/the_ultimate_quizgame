@@ -2,7 +2,7 @@
 #include "Record.h"
 #include <sstream>
 #include <string>
-
+#include "CommonConstants.h"
 std::ostream& operator<<(std::ostream& os, const Record& rec)
 {
 	os << rec.question << rec.correctAnswer;
@@ -40,10 +40,10 @@ std::istream& operator>>(std::istream& is, Record& rec)
 	*/
 	using namespace std;
 	string csvLine;
+
 	getline(is, csvLine, '\n');
 	if (!is)
 	{
-		std::cout << "the file was badly formatted sadly!! cant do much with this\n";
 		rec = Record{};
 		return is;
 	}
@@ -56,11 +56,11 @@ std::istream& operator>>(std::istream& is, Record& rec)
 	{
 
 		// find delim
-		end = csvLine.find(SaveQuestion::delimiter, start);
+		end = csvLine.find(config::delimiter, start);
 		std::string candidate = csvLine.substr(start, end-start);
 
 		// rec must have question, answer and three bad choices per line and not more
-		if(candidate.size() >=1 && candidate.size() < SaveQuestion::charLimit && tokens.size() < 5)
+		if(candidate.size() >=1 && candidate.size() < config::charlimit && tokens.size() < config::delimitersCount)
 		{
 			// valid token found
 			tokens.push_back(candidate);
@@ -74,11 +74,16 @@ std::istream& operator>>(std::istream& is, Record& rec)
 
 		delims++;
 		//skip to the next substr location
-		start = csvLine.find_first_not_of(SaveQuestion::delimiter, end);
+		start = csvLine.find_first_not_of(config::delimiter, end);
 		candidate = "";
 	}
 
-	
+	if(tokens.size() != config::delimitersCount)
+	{
+		rec = Record{};
+		std::cout << "the file was badly formatted sadly!! cant do much with this\n";
+		return is;
+	}
 	vector<string> falsesVec{tokens[2], tokens[3], tokens[4] };
 	
 	

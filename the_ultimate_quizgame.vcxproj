@@ -150,6 +150,7 @@
     <ClCompile Include="the_ultimate_quizgame.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CommonConstants.h" />
     <ClInclude Include="CstyleRecord.h" />
     <ClInclude Include="EnterQuestion.h" />
     <ClInclude Include="MainMenu.h" />

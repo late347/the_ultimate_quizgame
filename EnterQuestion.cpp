@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 #include "Record.h"
-
+#include "CommonConstants.h"
 void EnterQuestion::onEntry()
 {
 	using namespace std;
@@ -18,7 +18,7 @@ void EnterQuestion::onEntry()
 
 	// enter false choices
 	std::vector<std::string> falses;
-	for (size_t i = 1; i <= wrongChoices; i++)
+	for (size_t i = 1; i <= config::falseChoices; i++)
 	{
 		cout << "Enter a false option to that question (60 chars) there will be 3 false options to a question\n";
 		falses.push_back(getStringInput());
@@ -90,7 +90,7 @@ std::string EnterQuestion::getStringInput()
 	while(running)
 	{
 		std::getline(std::cin, buf);
-		if (std::cin && buf.size() <= 60) 
+		if (std::cin && buf.size() <= config::charlimit-1) 
 		{
 			running = false;
 		}

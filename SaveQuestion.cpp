@@ -2,7 +2,7 @@
 #include "StateMachine.h"
 #include <iostream>
 #include <fstream>
-
+#include "CommonConstants.h"
 void SaveQuestion::onEntry()
 {
 
@@ -39,7 +39,7 @@ void SaveQuestion::writeQuestionsToFile()
 	using namespace std;
 	cout << "saving the question to the file...\n";
 
-	ofstream outQuestionsStream(stateMachine.filename, ios::app);
+	ofstream outQuestionsStream(config::filename, ios::app);
 	if (!outQuestionsStream)
 	{
 		throw std::logic_error("couldnt open even the file!??!!");
@@ -49,10 +49,10 @@ void SaveQuestion::writeQuestionsToFile()
 	{
 		auto rec = stateMachine.getQuestionsList()[i];
 		// format the file as csv
-		outQuestionsStream << rec.getQuestion() << delimiter << rec.getCorrectAnswer() << delimiter;
-		for (size_t i = 0; i < 3; i++)
+		outQuestionsStream << rec.getQuestion() << config::delimiter << rec.getCorrectAnswer() << config::delimiter;
+		for (size_t i = 0; i < config::falseChoices; i++)
 		{
-			outQuestionsStream << rec.getFalseChoices()[i] << ';';
+			outQuestionsStream << rec.getFalseChoices()[i] << config::delimiter;
 		}
 		// start newline for the next record
 		outQuestionsStream << endl;

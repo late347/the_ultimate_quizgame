@@ -5,7 +5,7 @@
 #include <cmath>
 #include <iostream>
 #include "SaveQuestion.h"
-
+#include "CommonConstants.h"
 
 class Record
 {
@@ -14,13 +14,15 @@ public:
 
 	Record() {}
 
-	Record(const std::string& q, const std::string& a, const std::array<std::string, 3 >& falses)
+	Record(const std::string& q, const std::string& a, const std::array<std::string, config::falseChoices >& falses)
 	{
+		// TODO
 		// verify charcount was ok or truncate it 
+		// TODO
 		question = q;
-			correctAnswer = a;
+		correctAnswer = a;
 
-		for (size_t i = 0; i < 3; i++)
+		for (size_t i = 0; i < config::falseChoices; i++)
 		{
 			falseChoices[i] = falses[i];
 		}
@@ -28,18 +30,19 @@ public:
 
 	Record(const std::string& q, const std::string& a, const std::vector<std::string>& falses)
 	{
+		// TODO
 
 			// verify charcount was ok or truncate it 
 		question = q;
 		correctAnswer = a;
-		for (size_t i = 0; i < 3; i++)
+		for (size_t i = 0; i < config::falseChoices; i++)
 		{
 			falseChoices[i] = falses[i];
 		}
 	}
 	std::string getQuestion() const { return  question; }
 	std::string getCorrectAnswer() const { return  correctAnswer; }
-	std::array<std::string, 3> getFalseChoices() const { return falseChoices; }
+	std::array<std::string, config::falseChoices> getFalseChoices() const { return falseChoices; }
 
 	void setQuestion(const std::string& val){ question = val; }
 	void setCorrectAnswer(const std::string& val) { correctAnswer = val; }
@@ -59,7 +62,7 @@ private:
 
 	std::string question;
 	std::string correctAnswer;
-	std::array<std::string, 3> falseChoices;
+	std::array<std::string, config::falseChoices> falseChoices;
 
 
 

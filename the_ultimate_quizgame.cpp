@@ -4,8 +4,6 @@
 #include <fstream>
 #include "Record.h"
 #include <vector>
-
-
 #include <iostream>
 
 int main()
@@ -38,7 +36,6 @@ int main()
 	//process the records based on csv delimiter
 	while (recordReader >> rec)
 	{
-
 		gameQuestions.push_back(rec);
 		rec = Record{};
 		int debug346 = 0;

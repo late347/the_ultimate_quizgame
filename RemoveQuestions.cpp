@@ -49,7 +49,7 @@ void RemoveQuestions::removeQuestions()
 {
 	using namespace std;
 
-	ofstream outQuestionsStream(stateMachine.filename, ios::out | ios::trunc);
+	ofstream outQuestionsStream(config::filename, ios::out | ios::trunc);
 	if (!outQuestionsStream)
 	{
 		throw std::logic_error("couldnt open even the file for removing the questions!??!!");

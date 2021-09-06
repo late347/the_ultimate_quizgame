@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-
+#include "CommonConstants.h"
 // chould be used to writing to a random access file (binary mode writing/reading)
 // doing it would require exact size strings but would allow random access and exact insertion and deletion nicely
 class CstyleRecord
@@ -23,7 +23,7 @@ public:
 	{
 		int length = val.size();
 		// truncate if necessary
-		length = (length < charlimit ? length : (charlimit - 1));
+		length = (length < config::charlimit ? length : (config::charlimit - 1));
 		val.copy(question, length);
 		question[length] = '\0';
 	}
@@ -37,7 +37,7 @@ public:
 	{
 		int length = val.size();
 		// truncate if necessary
-		length = (length < charlimit ? length : (charlimit - 1));
+		length = (length < config::charlimit ? length : (config::charlimit - 1));
 		val.copy(correctAnswer, length);
 		correctAnswer[length] = '\0';
 	}
@@ -52,7 +52,7 @@ public:
 	{
 		int length = val.size();
 		// truncate if necessary
-		length = (length < charlimit ? length : (charlimit - 1));
+		length = (length < config::charlimit ? length : (config::charlimit - 1));
 		val.copy(false1, length);
 		false1[length] = '\0';
 	}
@@ -61,7 +61,7 @@ public:
 	{
 		int length = val.size();
 		// truncate if necessary
-		length = (length < charlimit ? length : (charlimit - 1));
+		length = (length < config::charlimit ? length : (config::charlimit - 1));
 		val.copy(false2, length);
 		false2[length] = '\0';
 	}
@@ -72,7 +72,7 @@ public:
 	{
 		int length = val.size();
 		// truncate if necessary
-		length = (length < charlimit ? length : (charlimit - 1));
+		length = (length < config::charlimit ? length : (config::charlimit - 1));
 		val.copy(false3, length);
 		false3[length] = '\0';
 	}
@@ -81,13 +81,11 @@ public:
 
 
 
-	static const int charlimit{ 61 };
-
 private:
-	char question[charlimit];
-	char correctAnswer[charlimit];
-	char false1[charlimit];
-	char false2[charlimit];
-	char false3[charlimit];
+	char question[config::charlimit];
+	char correctAnswer[config::charlimit];
+	char false1[config::charlimit];
+	char false2[config::charlimit];
+	char false3[config::charlimit];
 };
 
