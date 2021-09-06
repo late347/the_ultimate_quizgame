@@ -33,7 +33,7 @@ namespace config
 	// in the actual quizgame it prints out the 1 correct option, and 3 false options and quitChoice
 	// so its here to denote when you play the game and select quit it actually quits as the last choice...
 	// quizstates.h
-	static constexpr int quitChoiceMenuNumber = (falseChoices + 2);
+	static constexpr int lastMenuChoiceQuiz = (falseChoices + 2);
 }
 
 #endif // !COMMONCONSTANTS_H

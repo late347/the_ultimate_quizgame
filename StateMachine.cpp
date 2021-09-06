@@ -5,7 +5,7 @@
 #include "EnterQuestion.h"
 #include "Quit.h"
 #include "SaveQuestion.h"
-
+#include "QuizStates.h"
 
 
 class RemoveQuestions;
@@ -28,6 +28,7 @@ StateMachine::StateMachine()
 	possibleStates[State::StateName::ENTERQUESTION] = new EnterQuestion(*this);
 	possibleStates[State::StateName::QUIT] = new Quit(*this);
 	possibleStates[State::StateName::SAVEQUESTION] = new SaveQuestion(*this);
+	possibleStates[State::StateName::QUIZGAME] = new QuizGame(*this);
 
 }
 

@@ -13,7 +13,7 @@ class StateMachine
 
 public:
 
-	StateMachine();
+	explicit StateMachine();
 	~StateMachine();
 
 	void changeState(State* theNewState);

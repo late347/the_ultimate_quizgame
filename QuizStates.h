@@ -14,22 +14,23 @@ public:
 	virtual void onEntry() override
 	{
 		initializeQuiz();
-		randomizeFalseChoices();
-
+		playQuiz();
 		
 
 
 
-		stateMachine.changeState(QUIT);
+		stateMachine.changeState(MAINMENU);
 	
 	}
 	virtual void onExit() override
 	{
-		correctCount = 0;
+		
 		float correctPercentage = (correctCount / gameQuestions.size() * 100);
-		gameQuestions.clear();
+		
 		std::cout << "thank you for playing the Quiz Game!!\n";
 		std::cout << "you got " << correctPercentage << " % of the questions correct\n";
+		correctCount = 0;
+		gameQuestions.clear();
 	}
 
 	bool playQuiz()
@@ -37,16 +38,16 @@ public:
 		// which question we are now asking
 		size_t qIdx = 0;
 		int selection = 0;
-		// play the game or quit 
+		// play the game or go main menu 
 
-		while (qIdx < gameQuestions.size() && selection != config::quitChoiceMenuNumber)
+		while (qIdx < gameQuestions.size() && selection != config::lastMenuChoiceQuiz)
 		{
 			auto correct_and_options = askQuestion(qIdx);
 			
 			int selection = getInput();
 			
-			auto userChoice = correct_and_options.second[selection];
-			if (userChoice.compare(correct_and_options.first))
+			auto userChoice = correct_and_options.second[selection-1];
+			if (userChoice.compare(correct_and_options.first) == 0)
 			{
 				correctCount++;
 			}
@@ -89,7 +90,7 @@ public:
 		}
 
 		// return the options and the correct answer in pair
-		pair <string, array<string, config::falseChoices+1>> thePair;
+		pair <string, array<string, config::falseChoices + 1>> thePair{correct, options};
 		return thePair;
 	}
 
@@ -155,11 +156,3 @@ private:
 
 };
 
-class QuizGame : State 
-
-{
-public:
-
-private:
-
-};
