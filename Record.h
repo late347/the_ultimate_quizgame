@@ -16,15 +16,31 @@ public:
 
 	Record(const std::string& q, const std::string& a, const std::array<std::string, config::falseChoices >& falses)
 	{
-		// TODO
+		
 		// verify charcount was ok or truncate it 
-		// TODO
-		question = q;
-		correctAnswer = a;
+		
+		/*
+		int length = val.size();
+		// truncate if necessary
+		length = (length < config::charlimit ? length : (config::charlimit - 1));
+		val.copy(question, length);
+		question[length] = '\0';
+		*/
+		int length = q.size();
+		length = (length < config::charlimit ? length : (config::charlimit - 1));
+		question = q.substr(0, length);
+
+		length = a.size();
+		length = (length < config::charlimit ? length : (config::charlimit - 1));
+		correctAnswer = a.substr(0, length);
+
 
 		for (size_t i = 0; i < config::falseChoices; i++)
 		{
-			falseChoices[i] = falses[i];
+			length = falses[i].size();
+			length = (length < config::charlimit ? length : (config::charlimit - 1));
+
+			falseChoices[i] = falses[i].substr(0, length);
 		}
 	}
 
@@ -33,12 +49,40 @@ public:
 		// TODO
 
 			// verify charcount was ok or truncate it 
-		question = q;
-		correctAnswer = a;
-		for (size_t i = 0; i < config::falseChoices; i++)
+
+		int length = q.size();
+		length = (length < config::charlimit ? length : (config::charlimit - 1));
+		question = q.substr(0, length);
+
+		length = a.size();
+		length = (length < config::charlimit ? length : (config::charlimit - 1));
+		correctAnswer = a.substr(0, length);
+
+		bool fileWasGood=true;
+		if (falses.size() != config::falseChoices)
 		{
-			falseChoices[i] = falses[i];
+			fileWasGood = false;
 		}
+
+
+		if (true)
+		{
+			for (size_t i = 0; i < config::falseChoices; i++)
+			{
+				length = falses[i].size();
+				length = (length < config::charlimit ? length : (config::charlimit - 1));
+				falseChoices[i] = falses[i].substr(0, length);
+			}
+		}
+		else
+		{
+			for (size_t i = 0; i < config::falseChoices; i++)
+			{
+				falseChoices[i] = "";
+				std::cout << "bad false answers existed in the file, creating empty string instead\n";
+			}
+		}
+
 	}
 	std::string getQuestion() const { return  question; }
 	std::string getCorrectAnswer() const { return  correctAnswer; }

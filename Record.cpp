@@ -18,26 +18,7 @@ std::istream& operator>>(std::istream& is, Record& rec)
 	// probablyu works for the basic case when all is formatted well!
 	// check the formatting from stream was correct and then assign
 	// check that there is 5 semicolons, and get the strings before those
-	/*
-		int semicolons = 0;
-	std::istringstream ss;
-	std::string q, a, f1, f2, f3;
-	std::string endOfLine;
-
-
-	std::getline(is, q, ';');
-	std::getline(is, a, ';');
-	std::getline(is, f1, ';');
-	std::getline(is, f2, ';');
-	std::getline(is, f3, ';');
-	std::getline(is, endOfLine, '\n');
-	std::vector<std::string> falses;
-	falses.push_back(f1);
-	falses.push_back(f2);
-	falses.push_back(f3);
-	Record rec2(q, a, falses);
-	rec = rec2;
-	*/
+	
 	using namespace std;
 	string csvLine;
 
