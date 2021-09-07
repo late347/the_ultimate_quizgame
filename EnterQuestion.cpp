@@ -44,7 +44,7 @@ void EnterQuestion::onEntry()
 		//enter a new question to list
 		stateMachine.changeState(ENTERQUESTION);
 	case 3:
-		// dont do anything basically just goto main menu
+		//  goto main menu
 		stateMachine.changeState(MAINMENU);
 		break;
 	case 4: 
@@ -76,9 +76,9 @@ void EnterQuestion::printMenu()
 
 int EnterQuestion::getInput()
 {
-	int answ{ 0 };
-	answ = getNumericInput(EnterQuestion::numberOfMenuOptions);
-	return answ;
+	int answer{ 0 };
+	answer = getNumericInput(EnterQuestion::numberOfMenuOptions);
+	return answer;
 }
 
 std::string EnterQuestion::getStringInput()

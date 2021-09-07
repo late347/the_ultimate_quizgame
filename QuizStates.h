@@ -94,16 +94,7 @@ public:
 		return thePair;
 	}
 
-	void randomizeFalseChoices()
-	{
-		// randomizes order in the each record's falsechoices array
-		// only has to be done to all of them at quiz start
-		for (auto& i : gameQuestions)
-		{
-			i.shuffleFalseChoices();
 
-		}
-	}
 
 	
 	virtual void printMenu() override

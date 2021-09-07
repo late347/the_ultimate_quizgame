@@ -19,13 +19,7 @@ public:
 		
 		// verify charcount was ok or truncate it 
 		
-		/*
-		int length = val.size();
-		// truncate if necessary
-		length = (length < config::charlimit ? length : (config::charlimit - 1));
-		val.copy(question, length);
-		question[length] = '\0';
-		*/
+		
 		int length = q.size();
 		length = (length < config::charlimit ? length : (config::charlimit - 1));
 		question = q.substr(0, length);
@@ -95,12 +89,7 @@ public:
 
 
 
-public:
 
-	void shuffleFalseChoices()
-	{
-		std::random_shuffle(falseChoices.begin(), falseChoices.end());
-	}
 
 
 private:
